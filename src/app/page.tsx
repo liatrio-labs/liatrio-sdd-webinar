@@ -155,8 +155,16 @@ export default function Home() {
           {/* Right: Event Details + Registration */}
           <div
             id="register"
-            className="bg-white dark:bg-card-dark rounded-xl shadow-2xl p-6 sm:p-8 text-grey-800 dark:text-text-primary-dark dark:border dark:border-border-dark scroll-mt-24"
+            className="bg-white dark:bg-card-dark rounded-xl shadow-2xl overflow-hidden text-grey-800 dark:text-text-primary-dark dark:border dark:border-border-dark scroll-mt-24"
           >
+            <Image
+              src="/images/webinar-cover.png"
+              alt="AI-Native Jumpstart Webinar: Building with Spec-Driven Development"
+              width={800}
+              height={420}
+              className="w-full h-auto"
+            />
+            <div className="p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-3">
               <span className="inline-block w-2 h-2 rounded-full bg-accent-green animate-pulse" />
               <p className="text-sm font-medium text-grey-700 dark:text-text-secondary-dark">
@@ -171,6 +179,7 @@ export default function Home() {
               specifications to verified, production-ready code.
             </p>
             <ZoomEmbed />
+            </div>
           </div>
         </div>
       </section>
