@@ -48,11 +48,11 @@ async function getZoomToken(): Promise<string> {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email, firstName, lastName } = body;
+    const { email, firstName, lastName, company, department } = body;
 
-    if (!firstName?.trim() || !lastName?.trim() || !email?.trim()) {
+    if (!firstName?.trim() || !lastName?.trim() || !email?.trim() || !company?.trim() || !department?.trim()) {
       return NextResponse.json(
-        { error: "First name, last name, and email are required." },
+        { error: "All fields are required." },
         { status: 400 }
       );
     }
@@ -85,12 +85,19 @@ export async function POST(request: Request) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          attendees: [
+          tickets: [
             {
               first_name: firstName.trim(),
               last_name: lastName.trim(),
               email: email.trim(),
               ticket_type_id: ticketTypeId,
+              custom_questions: [
+                { title: "First Name", value: firstName.trim() },
+                { title: "Last Name", value: lastName.trim() },
+                { title: "Email Address", value: email.trim() },
+                { title: "Company", value: company.trim() },
+                { title: "Department", value: department.trim() },
+              ],
             },
           ],
         }),

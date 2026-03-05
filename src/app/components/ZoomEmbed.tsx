@@ -8,6 +8,8 @@ export default function ZoomEmbed() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [department, setDepartment] = useState("");
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -20,7 +22,7 @@ export default function ZoomEmbed() {
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, email }),
+        body: JSON.stringify({ firstName, lastName, email, company, department }),
       });
 
       const data = await res.json();
@@ -108,6 +110,44 @@ export default function ZoomEmbed() {
           className="w-full rounded-md border border-grey-100 dark:border-border-dark bg-white dark:bg-bg-dark px-3 py-2.5 text-sm text-grey-800 dark:text-text-primary-dark placeholder:text-grey-700/50 dark:placeholder:text-text-secondary-dark/50 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent"
           placeholder="jane@company.com"
         />
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label
+            htmlFor="company"
+            className="block text-sm font-medium text-grey-700 dark:text-text-secondary-dark mb-1"
+          >
+            Company
+          </label>
+          <input
+            id="company"
+            type="text"
+            required
+            autoComplete="organization"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            className="w-full rounded-md border border-grey-100 dark:border-border-dark bg-white dark:bg-bg-dark px-3 py-2.5 text-sm text-grey-800 dark:text-text-primary-dark placeholder:text-grey-700/50 dark:placeholder:text-text-secondary-dark/50 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent"
+            placeholder="Acme Inc."
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="department"
+            className="block text-sm font-medium text-grey-700 dark:text-text-secondary-dark mb-1"
+          >
+            Department
+          </label>
+          <input
+            id="department"
+            type="text"
+            required
+            autoComplete="organization-title"
+            value={department}
+            onChange={(e) => setDepartment(e.target.value)}
+            className="w-full rounded-md border border-grey-100 dark:border-border-dark bg-white dark:bg-bg-dark px-3 py-2.5 text-sm text-grey-800 dark:text-text-primary-dark placeholder:text-grey-700/50 dark:placeholder:text-text-secondary-dark/50 focus:outline-none focus:ring-2 focus:ring-accent-green focus:border-transparent"
+            placeholder="Engineering"
+          />
+        </div>
       </div>
 
       {formState === "error" && (
