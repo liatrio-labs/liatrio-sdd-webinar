@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand Colors */
+  --color-grey-800: #111111;
+  --color-grey-700: #1e1e1e;
+  --color-grey-100: #eeeeee;
+  --color-primary-green: #24AE1D;
+  --color-bright-green: #89df00;
+
+  /* Accent green: dark in light mode, bright in dark mode */
+  --color-accent-green: var(--accent-green-resolved);
+
+  /* Dark Theme - matching dev.liatrio.com / SDD Playbook */
+  --color-bg-dark: #1a1f23;
+  --color-bg-section-dark: #2d3338;
+  --color-card-dark: #23292f;
+  --color-border-dark: #343d46;
+  --color-text-primary-dark: #fafafa;
+  --color-text-secondary-dark: #acb3b9;
+  --color-accent-green-hover: #9ef033;
+
+  --font-sans: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  --accent-green-resolved: #24AE1D;
+}
+
+html.dark {
+  color-scheme: dark;
+  --accent-green-resolved: #89df00;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #111111;
+  font-family: var(--font-sans), sans-serif;
+}
+
+html.dark body {
+  background: #1a1f23;
+  color: #fafafa;
 }
