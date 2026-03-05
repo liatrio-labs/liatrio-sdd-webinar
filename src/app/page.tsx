@@ -61,7 +61,7 @@ const speakers = [
     image: "/images/robert.png.jpg",
   },
   {
-    name: "Damien Sturm",
+    name: "Damien Storm",
     title: "Lead DevOps Engineer",
     image: "/images/damien.jpg",
   },

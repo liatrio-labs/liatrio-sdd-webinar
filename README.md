@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | Playbook Banner | Prominent CTA linking to the [SDD Playbook](https://liatrio-labs.github.io/spec-driven-workflow/) |
 | What You'll Learn | 6-card grid covering webinar topics |
 | Open-Source Tools | Cards linking to the [playbook docs](https://liatrio-labs.github.io/spec-driven-workflow/) and [GitHub repo](https://github.com/liatrio-labs/spec-driven-workflow) |
-| Speakers | Robert Kelly (VP of Innovation) and Damien Sturm (Lead DevOps Engineer) |
+| Speakers | Robert Kelly (VP of Innovation) and Damien Storm (Lead DevOps Engineer) |
 | Footer | Logo, LinkedIn link, copyright |
 
 ## Project Structure
