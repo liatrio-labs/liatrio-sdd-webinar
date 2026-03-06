@@ -61,7 +61,7 @@ const speakers = [
     image: "/images/robert.png.jpg",
   },
   {
-    name: "Damien Sturm",
+    name: "Damien Storm",
     title: "Lead DevOps Engineer",
     image: "/images/damien.jpg",
   },
@@ -127,23 +127,11 @@ export default function Home() {
               structured prompts they can use immediately.
             </p>
 
-            <div id="register" className="mt-10 max-w-lg scroll-mt-24">
-              <ZoomEmbed />
-            </div>
-          </div>
-
-          {/* Right: Your Hosts */}
-          <div className="rounded-xl bg-grey-800/80 dark:bg-card-dark border border-grey-700/50 dark:border-border-dark p-6 sm:p-8 backdrop-blur-sm">
-            <h2 className="text-xl font-bold text-white dark:text-text-primary-dark mb-6">
-              Your Hosts
-            </h2>
-            <div className="space-y-4">
+            {/* Speakers */}
+            <div className="mt-10 flex items-center gap-6">
               {speakers.map((speaker) => (
-                <div
-                  key={speaker.name}
-                  className="flex items-center gap-4 rounded-lg bg-grey-700/60 dark:bg-bg-dark/60 p-4"
-                >
-                  <div className="relative w-20 h-20 shrink-0 rounded-full overflow-hidden ring-2 ring-bright-green/40">
+                <div key={speaker.name} className="flex items-center gap-3">
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-bright-green/40">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
@@ -152,15 +140,45 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-base">
+                    <p className="text-white font-semibold text-sm">
                       {speaker.name}
                     </p>
-                    <p className="text-gray-400 dark:text-text-secondary-dark text-sm">
+                    <p className="text-gray-400 dark:text-text-secondary-dark text-xs">
                       {speaker.title}
                     </p>
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right: Event Details + Registration */}
+          <div
+            id="register"
+            className="bg-white dark:bg-card-dark rounded-xl shadow-2xl overflow-hidden text-grey-800 dark:text-text-primary-dark dark:border dark:border-border-dark scroll-mt-24"
+          >
+            <Image
+              src="/images/webinar-cover.png"
+              alt="AI-Native Jumpstart Webinar: Building with Spec-Driven Development"
+              width={800}
+              height={420}
+              className="w-full h-auto"
+            />
+            <div className="p-6 sm:p-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-block w-2 h-2 rounded-full bg-accent-green animate-pulse" />
+              <p className="text-sm font-medium text-grey-700 dark:text-text-secondary-dark">
+                Registration Open
+              </p>
+            </div>
+            <h2 className="text-2xl font-bold mb-3">AI Jumpstart Webinar</h2>
+            <p className="text-grey-700 dark:text-text-secondary-dark text-base mb-6 leading-relaxed">
+              Learn
+              spec-driven development prompts for collaborating with AI agents
+              to deliver reliable outcomes &mdash; from structured
+              specifications to verified, production-ready code.
+            </p>
+            <ZoomEmbed />
             </div>
           </div>
         </div>
